@@ -1,5 +1,5 @@
 # slot-switcher_Droidian
-A very simple python + GTK app to change slot and reboot into OS on other slot
+A very simple python + GTK app to change slot on A/B Android devices and reboot into OS on other slot
 
 Move change-slot into somewhere in PATH (e.g. /usr/bin)
 
