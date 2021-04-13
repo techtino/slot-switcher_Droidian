@@ -23,7 +23,7 @@ output = stream.read()
 
 def switchSlotFunc():
     if temp.__eq__(0):
-        os.system(prefix + 'set-active-boot-slot ' + '1 && systemctl reboot') # will only reboot if no password is set on device
+        os.system(prefix + 'set-active-boot-slot ' + '1 && systemctl reboot')
     elif temp.__eq__(1):
         os.system(prefix + 'set-active-boot-slot ' + '0 && systemctl reboot')
 
