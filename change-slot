@@ -8,28 +8,15 @@ from gi.repository import Gtk
 
 prefix = 'unset LD_PRELOAD; unset LD_LIBRARY_PATH; /system/bin/bootctl '
 
-stream = os.popen(prefix + 'hal-info')
-output = stream.read()
-
-stream = os.popen(prefix + 'get-number-slots')
-output = stream.read()
-
-stream = os.popen(prefix + 'get-current-slot')
-output = stream.read()
-temp = output
-
-stream = os.popen(prefix + 'get-suffix ' + temp)
-output = stream.read()
-
 def switchSlotFunc():
-    if temp.__eq__(0):
+    if (temp == 0):
         os.system(prefix + 'set-active-boot-slot ' + '1 && systemctl reboot')
-    elif temp.__eq__(1):
+    elif (temp == 1):
         os.system(prefix + 'set-active-boot-slot ' + '0 && systemctl reboot')
 
 class MyWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Hello World")
+        Gtk.Window.__init__(self, title="Slot Changer")
 
         self.button = Gtk.Button(label="Boot Android")
         self.button.connect("clicked", self.on_button_clicked)
@@ -37,6 +24,10 @@ class MyWindow(Gtk.Window):
 
     def on_button_clicked(self, widget):
         switchSlotFunc()
+
+stream = os.popen(prefix + 'get-current-slot')
+output = stream.read()
+temp = int(output)
 
 win = MyWindow()
 win.connect("destroy", Gtk.main_quit)
