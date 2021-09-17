@@ -3,9 +3,7 @@ A very simple python + GTK app to change slot on A/B Android devices and reboot 
 
 ```
 git clone https://github.com/techtino/slot-switcher_Droidian
-
 cd slot-switcher_Droidian
-
 sudo ./install.sh
 ```
 Based on code from https://github.com/ubports-xiaomi-sdm660/Switch-My-Slot-Ubuntu-Touch
